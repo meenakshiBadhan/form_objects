@@ -1,9 +1,9 @@
-<div id="user_departments">
-	<%if @departments.present?%>	
-		<%@departments.each do |dept|%>
-			<p><%=dept.name%></p>
-		<%end%>
-	<%else%>
-		<p>No departments added yet</p>
+<h3>Departments - <%=@user.department_count%></h3>
+
+<%if @departments.present?%>	
+	<%@departments.each do |dept|%>
+		<p><%=dept.name%></p>
 	<%end%>
-</div>
+<%else%>
+	<p>No departments added yet</p>
+<%end%>
