@@ -1,3 +1,18 @@
 <h3>User</h3>
 <p>Name: <%= @user.name if @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
+
+<h3>Add Departments</h3>
+  <div class="column">
+    <%= form_for @department_form, :url=> {:controller=>"users", :action=>"save_departments"}, :html=>{:id=>"add_dept"}, :remote=>true do |f| %>
+        <%= f.label :name %>
+        <%= f.hidden_field :user_id, :value=>@user.id%>
+        <%= f.text_area :name, :placeholder => 'Add name' %><br>
+        <%= f.button "add", :onclick=>"$('#add_dept').submit(); return false;" %>
+      <% end %>  
+</div>
+
+<br /><br /><br /><br />
+
+<h3>Departments</h3>
+<%= render 'department' %>

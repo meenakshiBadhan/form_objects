@@ -1,0 +1,9 @@
+<div id="user_departments">
+	<%if @departments.present?%>	
+		<%@departments.each do |dept|%>
+			<p><%=dept.name%></p>
+		<%end%>
+	<%else%>
+		<p>No departments added yet</p>
+	<%end%>
+</div>
