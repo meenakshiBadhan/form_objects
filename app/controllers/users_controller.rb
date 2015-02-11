@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
   include SaveDepartments
+  # include 'app/user_decorator'
 
   def index
     @users = User.all
@@ -8,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_decorator = UserDecorator.new(@user)
     @department_form = DepartmentForm.new
     @departments = @user.departments
     unless @user == current_user
